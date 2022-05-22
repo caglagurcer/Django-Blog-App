@@ -1,0 +1,18 @@
+.navbar-custom .navbar-brand{
+    margin: 0;
+}
+
+.footer{
+    font-size:150%;
+    font-family: 'Koulen', cursive;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-image: linear-gradient(to bottom, rgb(159, 245, 20) 0%, #53cff1 100%);
+}
+
+.footer .navbar-brand{
+    font-size:130%;
+    font-family: 'Koulen', cursive;
+}

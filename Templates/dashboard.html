@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>DASHBOARD</h3>
+<hr>
+<p>Welcome, <small>{{request.user.username}}</small></p>
+
+<hr>
+<a class = "btn btn-info" href = "/articles/addarticle/">ADD ARTICLE</a>
+<hr>
+{% if articles %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">TITLE</th>
+      <th scope="col">AUTHOR</th>
+      <th scope="col">DATE</th>
+      <th scope="col">UPDATE</th>
+      <th scope="col">DELETE</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for article in articles  %}
+  <tr>
+      <th scope="row">{{article.id}}</th>
+      <td><a href="{%url 'article:detail' article.id %}">{{article.title}}</a></td>
+      <td>{{article.author.username}}</td>
+      <td>{{article.created_date}}</td>
+      <td><a href="{%url 'article:update' article.id %}" class = "btn btn-info">UPDATE</a></td>
+      <td><a href="{%url 'article:delete' article.id %}"class = "btn btn-info">DELETE</a></td>
+    </tr>
+  {% endfor %}
+   
+  </tbody>
+</table>
+
+{% else %}
+<div class = "alert alert-danger">You don't have any articles yet.</div>
+{% endif %}
+
+{% endblock %} 
+
